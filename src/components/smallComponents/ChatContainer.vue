@@ -3,8 +3,7 @@
     <div class="chats-container">
       <ul>
         <li :class="message.type" v-for="(message, index) in this.chat" v-bind:key="index">
-          message: {{message.message }}
-          name: {{ message.user }}
+          {{ message.user }}: {{message.message }}
         </li>
       </ul>
     </div>

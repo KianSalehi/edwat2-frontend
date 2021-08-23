@@ -31,19 +31,23 @@ export default {
   },
   methods:{
     ...mapMutations([
-        'SOCKET_CLEAR_CHAT'
+        'CLEAR_CHAT'
     ]),
     ...mapActions(['SOCKET_newRoomAction'])
   },
+  sockets:{
+    SOCKET_newRoomAction(roomName){
+      this.SOCKET_newRoomAction(roomName);
+    }
+  }
+  ,
   mounted() {
-    this.SOCKET_CLEAR_CHAT();
+    this.CLEAR_CHAT();
 
     let roomName= this.$route.params.videoSlug
     console.log(roomName)
     if(roomName){
-      this.SOCKET_newRoomAction(roomName);
       this.$socket.emit('join_create_room', roomName);
-
     }
   }
 }

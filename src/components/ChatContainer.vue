@@ -2,10 +2,6 @@
   <div class="chat-box">
     <div class="chats-container">
       <ul>
-        <li :class="message.type" v-bind:key="100">
-          message: Your room id is {{roomID}}
-          name: server
-        </li>
         <li :class="message.type" v-for="(message, index) in this.chat" v-bind:key="index">
           message: {{message.message }}
           name: {{ message.user }}
@@ -22,7 +18,6 @@
 
 <script>
 import {mapState, mapActions} from 'vuex'
-
 export default {
   name: "ChatContainer",
   data:()=>{
@@ -41,14 +36,23 @@ export default {
       let message = this.message
       if(message.length >= 1) {
         console.log(message);
-        this.SOCKET_addNewMessage({
+        this.$socket.emit('NEW_MESSAGE',{
           message: message,
           user: this.user,
-          roomID: this.roomID
-        });
+          roomID: this.roomID}
+        );
       }
 
       this.message = ''
+    }
+  },
+  sockets: {
+    SOCKET_addNewMessage(data) {
+      this.SOCKET_addNewMessage({
+        message: data.message,
+        user: data.user,
+        roomID: data.roomID
+      })
     }
   }
 }

@@ -14,9 +14,9 @@
 
 <script>
 import {mapMutations, mapActions} from 'vuex'
-import Chat from '../ChatContainer'
-import ChangeUser from '../ChangeUser'
-import YoutubeComponent from '../YoutubeComponent'
+import Chat from '../smallComponents/ChatContainer'
+import ChangeUser from '../smallComponents/ChangeUser'
+import YoutubeComponent from '../smallComponents/YoutubeComponent'
 
 export default {
   name: "Video",

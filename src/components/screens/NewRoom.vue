@@ -13,8 +13,8 @@
 
 <script>
 
-import CreateRoom from '../CreateRoom'
-import RoomList from '../RoomList.vue'
+import CreateRoom from '../smallComponents/CreateRoom'
+import RoomList from '../smallComponents/RoomList.vue'
 
 export default {
   name: 'NewRoom',

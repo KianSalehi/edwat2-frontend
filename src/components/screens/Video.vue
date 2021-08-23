@@ -1,0 +1,63 @@
+<template>
+  <div class="Video">
+    <video id="backgroundVideo"
+           autoplay
+           muted
+           loop>
+      <source src="./background.mp4" type="video/mp4">
+    </video>
+    <ChangeUser />
+    <Chat/>
+    <YoutubeComponent/>
+  </div>
+</template>
+
+<script>
+import {mapMutations, mapActions} from 'vuex'
+import Chat from '../ChatContainer'
+import ChangeUser from '../ChangeUser'
+import YoutubeComponent from '../YoutubeComponent'
+
+export default {
+  name: "Video",
+  props:{
+    roomID: String,
+    user: String
+  },
+  components:{
+    Chat,
+    ChangeUser,
+    YoutubeComponent
+  },
+  methods:{
+    ...mapMutations([
+        'SOCKET_CLEAR_CHAT'
+    ]),
+    ...mapActions(['SOCKET_newRoomAction'])
+  },
+  mounted() {
+    this.SOCKET_CLEAR_CHAT();
+
+    let roomName= this.$route.params.videoSlug
+    console.log(roomName)
+    if(roomName){
+      this.SOCKET_newRoomAction(roomName);
+      this.$socket.emit('join_create_room', roomName);
+
+    }
+  }
+}
+</script>
+
+<style scoped>
+#backgroundVideo{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  right:0;
+  top:0;
+  object-fit: cover;
+  z-index: -1;
+}
+
+</style>

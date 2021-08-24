@@ -71,6 +71,7 @@ export default {
   padding-right: 10px;
   bottom: 100px;
   border-radius: 20px;
+  font-size: 20px;
 }
 .chat-input{
   position: fixed;

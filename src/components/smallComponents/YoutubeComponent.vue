@@ -15,7 +15,8 @@ export default {
   methods: {
     ...mapActions(['SOCKET_newVideoID']),
     playing() {
-      this.$socket.emit("VIDEO_PLAYING", this.roomID);
+      let roomID = this.roomID;
+      this.$socket.emit("VIDEO_PLAYING", {roomID:roomID});
     },
     paused() {
       this.$socket.emit("VIDEO_PAUSED", this.roomID);

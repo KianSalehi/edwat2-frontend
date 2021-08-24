@@ -9,7 +9,7 @@ export default new Vuex.Store({
         user: "Anonymous",
         roomID:"",
         chat:[],
-        videoID:""
+        videoID:"nhBVL41-_Cw"
     },
     mutations:{
         NEW_ROOM(state, data){

@@ -1,5 +1,8 @@
 <template>
   <div class="Video">
+    <div id="nav">
+      <router-link to="/"><md-button class="navButton md-primary md-raised">New Room</md-button></router-link>
+    </div>
     <video id="backgroundVideo"
            autoplay
            muted
@@ -9,6 +12,7 @@
     <ChangeUser />
     <Chat/>
     <YoutubeComponent/>
+    <QueryContainer/>
   </div>
 </template>
 
@@ -17,17 +21,14 @@ import {mapMutations, mapActions} from 'vuex'
 import Chat from '../smallComponents/ChatContainer'
 import ChangeUser from '../smallComponents/ChangeUser'
 import YoutubeComponent from '../smallComponents/YoutubeComponent'
-
+import QueryContainer from "../smallComponents/QueryContainer";
 export default {
   name: "Video",
-  props:{
-    roomID: String,
-    user: String
-  },
   components:{
     Chat,
     ChangeUser,
-    YoutubeComponent
+    YoutubeComponent,
+    QueryContainer
   },
   methods:{
     ...mapMutations([

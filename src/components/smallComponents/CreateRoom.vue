@@ -1,8 +1,8 @@
 <template>
   <div>
     <form id="form" ref="form" v-on:submit.prevent="createRoom()">
-      <input type="text" ref="name" placeholder="Enter Room Name">
-      <button>Submit</button>
+      <md-field><md-input requred type="text" v-model="roomID" placeholder="Enter Room Name..."></md-input></md-field>
+      <md-button type="submit" class="md-raised md-primary">Submit</md-button>
     </form>
   </div>
 </template>
@@ -13,12 +13,17 @@ import slugify from 'slugify'
 
 export default {
   name: "CreateRoom",
+  data:()=>({
+    roomID: null
+    })
+,
   computed: mapState([
     'roomID'
   ]),
   methods:{
     createRoom(){
-      let roomID = slugify(this.$refs.name.value, '-');
+      console.log(this.$refs.name);
+      let roomID = slugify(this.roomID, '-');
       this.$router.push({
         name:'video',
         params:{

@@ -8,10 +8,14 @@
       </ul>
     </div>
 
-    <div class="chat-input">
-      <input style="width: 100%" v-on:keyup.enter="sendMessage()" v-model="message" type="text"> <br />
-      <button v-on:click="sendMessage()">Send Chat</button>
-    </div>
+    <div>
+      <div class="chat-input">
+        <md-field><md-input style="width: 100%;background-color: rgba(74, 154, 208, 0.9);border-radius: 5px" v-on:keyup.enter="sendMessage()" v-model="message" type="text" placeholder="message..."></md-input></md-field> <br />
+      </div>
+      <div class="sendButton">
+        <MdButton class="md-primary md-raised" v-on:click="sendMessage()">Send Chat</MdButton>
+      </div>
+      </div>
   </div>
 </template>
 
@@ -26,7 +30,7 @@ export default {
 },
   computed:{
     ...mapState([
-        'user', 'chat', 'roomID'
+        'user', 'chat', 'roomID', 'videoID'
     ])
   },
   methods: {
@@ -60,18 +64,31 @@ export default {
 <style scoped>
 .chats-container{
   position: fixed;
-  background-color: #42b983;
-  right: 5px;
-  width: 20vw;
-  height: 90vh;
+  background-color: rgba(74, 154, 208, 0.9);
+  right: 0;
+  width: 23vw;
+  height: 80vh;
   padding-right: 10px;
+  bottom: 100px;
+  border-radius: 20px;
 }
 .chat-input{
   position: fixed;
+  align-content: center;
   right: 5px;
   padding-right: 10px;
-  bottom:0;
+  bottom:1vh;
+  height: 100px;
   width: 20vw;
-
 }
+
+.sendButton{
+  position: absolute;
+  bottom: 0;
+  right: 7vw;
+  width: auto;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 10px;
+}
+
 </style>

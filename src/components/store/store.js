@@ -8,7 +8,8 @@ export default new Vuex.Store({
     state: {
         user: "Anonymous",
         roomID:"",
-        chat:[]
+        chat:[],
+        videoID:""
     },
     mutations:{
         NEW_ROOM(state, data){
@@ -26,6 +27,9 @@ export default new Vuex.Store({
         UPDATE_USER(state, data){
             state.user = data
         },
+        NEW_VIDEO_ID(state, data){
+            state.videoID = data
+        }
     },
     actions:{
         "SOCKET_newRoomAction"(context, data){
@@ -36,6 +40,9 @@ export default new Vuex.Store({
         },
         "SOCKET_updateUser" (context, data){
             context.commit('UPDATE_USER', data)
+        },
+        "SOCKET_newVideoID" (context, data){
+            context.commit('NEW_VIDEO_ID', data);
         }
     }
 })

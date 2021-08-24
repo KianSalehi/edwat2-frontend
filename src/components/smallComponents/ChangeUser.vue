@@ -1,6 +1,7 @@
 <template>
-<input v-model="user" :class="{active: active}" contenteditable @:click="clearInput()" @blur="setName()" @:keyup.enter="setName()">
-
+  <div id="ChangeUser">
+    <md-field><md-input v-model="user" :class="{active: active}" contenteditable @:click="clearInput()" @blur="setName()" @:keyup.enter="setName()"/></md-field>
+  </div>
 </template>
 
 <script>
@@ -29,15 +30,17 @@ export default {
 </script>
 
 <style scoped>
-input {
-  position: fixed;
+#ChangeUser {
+  position: absolute;
+  text-align: center;
   display: inline-block;
-  width: 10vw;
+  width: 11vw;
   cursor: pointer;
-  border: 1px dotted rgb(228, 228, 228);
-  padding: 5px;
-  top: 0;
+  top: -1vh;
   right: 5vw;
+  padding: 5px;
+  border-radius: 120px;
+  background-color: rgba(0,0,0,0.6);
  }
 
 </style>

@@ -7,20 +7,17 @@
     <source src="./background.mp4" type="video/mp4">
   </video>
     <CreateRoom />
-    <RoomList />
   </div>
 </template>
 
 <script>
 
 import CreateRoom from '../smallComponents/CreateRoom'
-import RoomList from '../smallComponents/RoomList.vue'
 
 export default {
   name: 'NewRoom',
   components:{
     CreateRoom,
-    RoomList
   },
   sockets: {
     connect(){

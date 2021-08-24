@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="appTitle">EDWAT</div>
     <form id="form" ref="form" v-on:submit.prevent="createRoom()">
       <md-field><md-input requred type="text" v-model="roomID" placeholder="Enter Room Name..."></md-input></md-field>
       <md-button type="submit" class="md-raised md-primary">Submit</md-button>
@@ -46,4 +47,12 @@ export default {
   margin-right: -50%;
   transform: translate(-50%, -50%);
   padding: 4%}
+.appTitle{
+  font-size: 40px;
+  padding: 30px;
+  font-weight: bolder;
+  color: whitesmoke;
+  text-shadow: 10px 5px 5px #070707;
+  font-family: 'Roboto', sans-serif;
+}
 </style>
